@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Checklist de Requisitos con Progreso Exacto</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Arial, sans-serif; 
+            margin: 40px; 
+            background-color: #f5f5f5;
+        }
+        h2 { 
+            color: #2c3e50; 
+            margin-top: 40px; 
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .progress {
+            font-size: 0.9em;
+            background: #3498db;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 15px;
+            margin-left: 15px;
+            min-width: 60px;
+            text-align: center;
+        }
+        table { 
+            width: 100%; 
+            border-collapse: collapse; 
+            margin: 20px 0; 
+            background: white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        th, td { 
+            border: 1px solid #e0e0e0; 
+            padding: 14px; 
+            text-align: left; 
+            vertical-align: middle;
+        }
+        th { 
+            background-color: #3498db; 
+            color: white; 
+            font-weight: 600;
+        }
+        .btn-group { 
+            display: flex; 
+            gap: 8px; 
+        }
+        .btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background-color: #bdc3c7;
+            color: white;
+        }
+        .btn.ok-btn.active {
+            background-color: #27ae60 !important;
+        }
+        .btn.no-btn.active {
+            background-color: #e74c3c !important;
+        }
+        .observaciones { 
+            width: 30%; 
+            padding: 8px; 
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+        }
+        .section-header { 
+            background-color: #f8f9fa; 
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- LICENCIA DE USO DE SUELO - 10 REQUISITOS -->
+    <h2>1. LICENCIA DE USO DE SUELO <span class="progress">0%</span></h2>
+    <table>
+        <tr><th>Requisito</th><th>Estado</th><th>Observaciones</th></tr>
+        <tr><td colspan="3" class="section-header">Requisitos Básicos</td></tr>
+        <tr>
+            <td>1. Certificado de no adeudo municipal (DR RUBIO)</td>
+            <td class="btn-group">
+                <button class="btn ok-btn" onclick="toggleState(this)">OK</button>
+                <button class="btn no-btn" onclick="toggleState(this)">NO</button>
+            </td>
+            <td><input type="text" class="observaciones"></td>
+        </tr>
+        <tr>
+            <td>2. Copia de escrituras del predio (con sello del RPP)</td>
+            <td class="btn-group">
+                <button class="btn ok-btn" onclick="toggleState(this)">OK</button>
+                <button class="btn no-btn" onclick="toggleState(this)">NO</button>
+            </td>
+            <td><input type="text" class="observaciones"></td>
+        </tr>
+        <tr>
+            <td>3. Copia de Constancia de Situación Fiscal (UCAN)</td>
+            <td class="btn-group">
+                <button class="btn ok-btn" onclick="toggleState(this)">OK</button>
+                <button class="btn no-btn" onclick="toggleState(this)">NO</button>
+            </td>
+            <td><input type="text" class="observaciones"></td>
+        </tr>
+        <tr>
+            <td>4. Documento de posesión legítima (arrendamiento, si aplica)</td>
+            <td class="btn-group">
+                <button class="btn ok-btn" onclick="toggleState(this)">OK</button>
+                <button class="btn no-btn" onclick="toggleState(this)">NO</button>
+            </td>
+            <td><input type="text" class="observaciones"></td>
+        </tr>
+        <tr>
+            <td>5. Acreditación de personalidad jurídica del propietario (INE)</td>
+            <td class="btn-group">
+                <button class="btn ok-btn" onclick="toggleState(this)">OK</button>
+                <button class="btn no-btn" onclick="toggleState(this)">NO</button>
+            </td>
+            <td><input type="text" class="observaciones"></td>
+        </tr>
+        <tr>
+            <td>6. Acta constitutiva inscrita (si es persona moral)</td>
+            <td class="btn-group">
+                <button class="btn ok-btn" onclick="toggleState(this)">OK</button>
+                <button class="btn no-btn" onclick="toggleState(this)">NO</button>
+            </td>
+            <td><input type="text" class="observaciones"></td>
+        </tr>
+        <tr>
+            <td>7. Poder notarial del representante + INE (si es persona moral)</td>
+            <td class="btn-group">
+                <button class="btn ok-btn" onclick="toggleState(this)">OK</button>
+                <button class="btn no-btn" onclick="toggleState(this)">NO</button>
+            </td>
+            <td><input type="text" class="observaciones"></td>
+        </tr>
+        <tr>
+            <td>8. Plano de localización y clave catastral</td>
+            <td class="btn-group">
+                <button class="btn ok-btn" onclick="toggleState(this)">OK</button>
+                <button class="btn no-btn" onclick="toggleState(this)">NO</button>
+            </td>
+            <td><input type="text" class="observaciones"></td>
+        </tr>
+        <tr>
+            <td>9. Constancia de situación fiscal actualizada</td>
+            <td class="btn-group">
+                <button class="btn ok-btn" onclick="toggleState(this)">OK</button>
+                <button class="btn no-btn" onclick="toggleState(this)">NO</button>
+            </td>
+            <td><input type="text" class="observaciones"></td>
+        </tr>
+        <tr>
+            <td>10. Copia del Número Oficial (emitido por CIDUE)</td>
+            <td class="btn-group">
+                <button class="btn ok-btn" onclick="toggleState(this)">OK</button>
+                <button class="btn no-btn" onclick="toggleState(this)">NO</button>
+            </td>
+            <td><input type="text" class="observaciones"></td>
+        </tr>
+    </table>
+
+    <!-- AUTORIZACIÓN DE INFRAESTRUCTURA VERDE - 11 REQUISITOS -->
+    <h2>2. AUTORIZACIÓN DE INFRAESTRUCTURA VERDE <span class="progress">0%</span></h2>
+    <table>
+        <tr><th>Requisito</th><th>Estado</th><th>Observaciones</th></tr>
+        <tr><td colspan="3" class="section-header">Requisitos Básicos</td></tr>
+        <tr>
+            <td>1. Certificado de no adeudo municipal</td>
+            <td class="btn-group">
+                <button class="btn ok-btn" onclick="toggleState(this)">OK</button>
+                <button class="btn no-btn" onclick="toggleState(this)">NO</button>
+            </td>
+            <td><input type="text" class="observaciones"></td>
+        </tr>
+        <tr>
+            <td>2. Copia de escrituras del predio (con sello del RPP)</td>
+            <td class="btn-group">
+                <button class="btn ok-btn" onclick="toggleState(this)">OK</button>
+                <button class="btn no-btn" onclick="toggleState(this)">NO</button>
+            </td>
+            <td><input type="text" class="observaciones"></td>
+        </tr>
+        <tr>
+            <td>3. Copia de Constancia de Situación Fiscal</td>
+            <td class="btn-group">
+                <button class="btn ok-btn" onclick="toggleState(this)">OK</button>
+                <button class="btn no-btn" onclick="toggleState(this)">NO</button>
+            </td>
+            <td><input type="text" class="observaciones"></td>
+        </tr>
+        <tr>
+            <td>4. Documento de posesión legítima (arrendamiento, si aplica)</td>
+            <td class="btn-group">
+                <button class="btn ok-btn" onclick="toggleState(this)">OK</button>
+                <button class="btn no-btn" onclick="toggleState(this)">NO</button>
+            </td>
+            <td><input type="text" class="observaciones"></td>
+        </tr>
+        <tr>
+            <td>5. Acreditación de personalidad jurídica del propietario</td>
+            <td class="btn-group">
+                <button class="btn ok-btn" onclick="toggleState(this)">OK</button>
+                <button class="btn no-btn" onclick="toggleState(this)">NO</button>
+            </td>
+            <td><input type="text" class="observaciones"></td>
+        </tr>
+        <tr>
+            <td>6. Acta constitutiva inscrita (si es persona moral)</td>
+            <td class="btn-group">
+                <button class="btn ok-btn" onclick="toggleState(this)">OK</button>
+                <button class="btn no-btn" onclick="toggleState(this)">NO</button>
+            </td>
+            <td><input type="text" class="observaciones"></td>
+        </tr>
+        <tr>
+            <td>7. Poder notarial del representante + INE (si es persona moral)</td>
+            <td class="btn-group">
+                <button class="btn ok-btn" onclick="toggleState(this)">OK</button>
+                <button class="btn no-btn" onclick="toggleState(this)">NO</button>
+            </td>
+            <td><input type="text" class="observaciones"></td>
+        </tr>
+        <tr>
+            <td>8. Copia de licencia de uso de suelo</td>
+            <td class="btn-group">
+                <button class="btn ok-btn" onclick="toggleState(this)">OK</button>
+                <button class="btn no-btn" onclick="toggleState(this)">NO</button>
+            </td>
+            <td><input type="text" class="observaciones"></td>
+        </tr>
+        <tr>
+            <td>9. Constancia de situación fiscal actualizada</td>
+            <td class="btn-group">
+                <button class="btn ok-btn" onclick="toggleState(this)">OK</button>
+                <button class="btn no-btn" onclick="toggleState(this)">NO</button>
+            </td>
+            <td><input type="text" class="observaciones"></td>
+        </tr>
+        <tr>
+            <td>10. Planos arquitectónicos en DWG (incl. azoteas)</td>
+            <td class="btn-group">
+                <button class="btn ok-btn" onclick="toggleState(this)">OK</button>
+                <button class="btn no-btn" onclick="toggleState(this)">NO</button>
+            </td>
+            <td><input type="text" class="observaciones"></td>
+        </tr>
+        <tr>
+            <td>11. Plano topográfico con curvas de nivel</td>
+            <td class="btn-group">
+                <button class="btn ok-btn" onclick="toggleState(this)">OK</button>
+                <button class="btn no-btn" onclick="toggleState(this)">NO</button>
+            </td>
+            <td><input type="text" class="observaciones"></td>
+        </tr>
+    </table>
+
+    <!-- DIAGNÓSTICO DE RIESGO - 14 REQUISITOS -->
+    <h2>3. DIAGNÓSTICO DE RIESGO <span class="progress">0%</span></h2>
+    <table>
+        <tr><th>Requisito</th><th>Estado</th><th>Observaciones</th></tr>
+        <tr><td colspan="3" class="section-header">Documentos Legales</td></tr>
+        <tr>
+            <td>1. Acta Constitutiva actualizada</td>
+            <td class="btn-group">
+                <button class="btn ok-btn" onclick="toggleState(this)">OK</button>
+                <button class="btn no-btn" onclick="toggleState(this)">NO</button>
+            </td>
+            <td><input type="text" class="observaciones"></td>
+        </tr>
+        <tr>
+            <td>2. Constancia de Situación Fiscal vigente</td>
+            <td class="btn-group">
+                <button class="btn ok-btn" onclick="toggleState(this)">OK</button>
+                <button class="btn no-btn" onclick="toggleState(this)">NO</button>
+            </td>
+            <td><input type="text" class="observaciones"></td>
+        </tr>
+        <tr>
+            <td>3. Poder legal + INE del representante</td>
+            <td class="btn-group">
+                <button class="btn ok-btn" onclick="toggleState(this)">OK</button>
+                <button class="btn no-btn" onclick="toggleState(this)">NO</button>
+            </td>
+            <td><input type="text" class="observaciones"></td>
+        </tr>
+        <tr><td colspan="3" class="section-header">Documentación del Predio</td></tr>
+        <tr>
+            <td>4. Escrituras o contrato de arrendamiento</td>
+            <td class="btn-group">
+                <button class="btn ok-btn" onclick="toggleState(this)">OK</button>
+                <button class="btn no-btn" onclick="toggleState(this)">NO</button>
+            </td>
+            <td><input type="text" class="observaciones"></td>
+        </tr>
+        <tr>
+            <td>5. Informativo de Uso de Suelo (Ing. Quintana)</td>
+            <td class="btn-group">
+                <button class="btn ok-btn" onclick="toggleState(this)">OK</button>
+                <button class="btn no-btn" onclick="toggleState(this)">NO</button>
+            </td>
+            <td><input type="text" class="observaciones"></td>
+        </tr>
+        <tr><td colspan="3" class="section-header">Factibilidades</td></tr>
+        <tr>
+            <td>6. Factibilidad de Energía Eléctrica</td>
+            <td class="btn-group">
+                <button class="btn ok-btn" onclick="toggleState(this)">OK</button>
+                <button class="btn no-btn" onclick="toggleState(this)">NO</button>
+            </td>
+            <td><input type="text" class="observaciones"></td>
+        </tr>
+        <tr>
+            <td>7. Factibilidad de Agua Potable (o contrato de pipa)</td>
+            <td class="btn-group">
+                <button class="btn ok-btn" onclick="toggleState(this)">OK</button>
+                <button class="btn no-btn" onclick="toggleState(this)">NO</button>
+            </td>
+            <td><input type="text" class="observaciones"></td>
+        </tr>
+        <tr><td colspan="3" class="section-header">Estudios Técnicos</td></tr>
+        <tr>
+            <td>8. Estudio de Mecánica de Suelos (firmado y validado)</td>
+            <td class="btn-group">
+                <button class="btn ok-btn" onclick="toggleState(this)">OK</button>
+                <button class="btn no-btn" onclick="toggleState(this)">NO</button>
+            </td>
+            <td><input type="text" class="observaciones"></td>
+        </tr>
+        <tr>
+            <td>9. Memoria de Cálculo Estructural (firmada)</td>
+            <td class="btn-group">
+                <button class="btn ok-btn" onclick="toggleState(this)">OK</button>
+                <button class="btn no-btn" onclick="toggleState(this)">NO</button>
+            </td>
+            <td><input type="text" class="observaciones"></td>
+        </tr>
+        <tr>
+            <td>10. Dictamen de Seguridad Estructural</td>
+            <td class="btn-group">
+                <button class="btn ok-btn" onclick="toggleState(this)">OK</button>
+                <button class="btn no-btn" onclick="toggleState(this)">NO</button>
+            </td>
+            <td><input type="text" class="observaciones"></td>
+        </tr>
+        <tr><td colspan="3" class="section-header">Trámites y Pagos</td></tr>
+        <tr>
+            <td>11. Pago de derechos: $17,644.00 MXN</td>
+            <td class="btn-group">
+                <button class="btn ok-btn" onclick="toggleState(this)">OK</button>
+                <button class="btn no-btn" onclick="toggleState(this)">NO</button>
+            </td>
+            <td><input type="text" class="observaciones"></td>
+        </tr>
+        <tr>
+            <td>12. Fotografías del predio</td>
+            <td class="btn-group">
+                <button class="btn ok-btn" onclick="toggleState(this)">OK</button>
+                <button class="btn no-btn" onclick="toggleState(this)">NO</button>
+            </td>
+            <td><input type="text" class="observaciones"></td>
+        </tr>
+        <tr><td colspan="3" class="section-header">Proceso Final</td></tr>
+        <tr>
+            <td>13. Cartas de presentación firmadas</td>
+            <td class="btn-group">
+                <button class="btn ok-btn" onclick="toggleState(this)">OK</button>
+                <button class="btn no-btn" onclick="toggleState(this)">NO</button>
+            </td>
+            <td><input type="text" class="observaciones"></td>
+        </tr>
+        <tr>
+            <td>14. Consolidación de documentación</td>
+            <td class="btn-group">
+                <button class="btn ok-btn" onclick="toggleState(this)">OK</button>
+                <button class="btn no-btn" onclick="toggleState(this)">NO</button>
+            </td>
+            <td><input type="text" class="observaciones"></td>
+        </tr>
+    </table>
+
+    <!-- LICENCIA AMBIENTAL - 14 REQUISITOS -->
+    <h2>4. LICENCIA AMBIENTAL <span class="progress">0%</span></h2>
+    <table>
+        <tr><th>Requisito</th><th>Estado</th><th>Observaciones</th></tr>
+        <tr><td colspan="3" class="section-header">Documentos Legales</td></tr>
+        <tr>
+            <td>1. Acta Constitutiva actualizada</td>
+            <td class="btn-group">
+                <button class="btn ok-btn" onclick="toggleState(this)">OK</button>
+                <button class="btn no-btn" onclick="toggleState(this)">NO</button>
+            </td>
+            <td><input type="text" class="observaciones"></td>
+        </tr>
+        <tr>
+            <td>2. Constancia de Situación Fiscal vigente</td>
+            <td class="btn-group">
+                <button class="btn ok-btn" onclick="toggleState(this)">OK</button>
+                <button class="btn no-btn" onclick="toggleState(this)">NO</button>
+            </td>
+            <td><input type="text" class="observaciones"></td>
+        </tr>
+        <tr>
+            <td>3. Poder legal + INE del representante</td>
+            <td class="btn-group">
+                <button class="btn ok-btn" onclick="toggleState(this)">OK</button>
+                <button class="btn no-btn" onclick="toggleState(this)">NO</button>
+            </td>
+            <td><input type="text" class="observaciones"></td>
+        </tr>
+        <tr><td colspan="3" class="section-header">Documentación del Predio</td></tr>
+        <tr>
+            <td>4. Escrituras o contrato de arrendamiento</td>
+            <td class="btn-group">
+                <button class="btn ok-btn" onclick="toggleState(this)">OK</button>
+                <button class="btn no-btn" onclick="toggleState(this)">NO</button>
+            </td>
+            <td><input type="text" class="observaciones"></td>
+        </tr>
+        <tr>
+            <td>5. Informativo de Uso de Suelo (Ing. Quintana)</td>
+            <td class="btn-group">
+                <button class="btn ok-btn" onclick="toggleState(this)">OK</button>
+                <button class="btn no-btn" onclick="toggleState(this)">NO</button>
+            </td>
+            <td><input type="text" class="observaciones"></td>
+        </tr>
+        <tr><td colspan="3" class="section-header">Factibilidades</td></tr>
+        <tr>
+            <td>6. Factibilidad de Energía Eléctrica</td>
+            <td class="btn-group">
+                <button class="btn ok-btn" onclick="toggleState(this)">OK</button>
+                <button class="btn no-btn" onclick="toggleState(this)">NO</button>
+            </td>
+            <td><input type="text" class="observaciones"></td>
+        </tr>
+        <tr>
+            <td>7. Factibilidad de Agua Potable (o contrato de pipa)</td>
+            <td class="btn-group">
+                <button class="btn ok-btn" onclick="toggleState(this)">OK</button>
+                <button class="btn no-btn" onclick="toggleState(this)">NO</button>
+            </td>
+            <td><input type="text" class="observaciones"></td>
+        </tr>
+        <tr><td colspan="3" class="section-header">Estudios Técnicos</td></tr>
+        <tr>
+            <td>8. Estudio de Mecánica de Suelos (firmado y validado)</td>
+            <td class="btn-group">
+                <button class="btn ok-btn" onclick="toggleState(this)">OK</button>
+                <button class="btn no-btn" onclick="toggleState(this)">NO</button>
+            </td>
+            <td><input type="text" class="observaciones"></td>
+        </tr>
+        <tr>
+            <td>9. Memoria de Cálculo Estructural (firmada)</td>
+            <td class="btn-group">
+                <button class="btn ok-btn" onclick="toggleState(this)">OK</button>
+                <button class="btn no-btn" onclick="toggleState(this)">NO</button>
+            </td>
+            <td><input type="text" class="observaciones"></td>
+        </tr>
+        <tr>
+            <td>10. Dictamen de Seguridad Estructural</td>
+            <td class="btn-group">
+                <button class="btn ok-btn" onclick="toggleState(this)">OK</button>
+                <button class="btn no-btn" onclick="toggleState(this)">NO</button>
+            </td>
+            <td><input type="text" class="observaciones"></td>
+        </tr>
+        <tr><td colspan="3" class="section-header">Trámites y Pagos</td></tr>
+        <tr>
+            <td>11. Pago de derechos: $17,644.00 MXN</td>
+            <td class="btn-group">
+                <button class="btn ok-btn" onclick="toggleState(this)">OK</button>
+                <button class="btn no-btn" onclick="toggleState(this)">NO</button>
+            </td>
+            <td><input type="text" class="observaciones"></td>
+        </tr>
+        <tr>
+            <td>12. Fotografías del predio</td>
+            <td class="btn-group">
+                <button class="btn ok-btn" onclick="toggleState(this)">OK</button>
+                <button class="btn no-btn" onclick="toggleState(this)">NO</button>
+            </td>
+            <td><input type="text" class="observaciones"></td>
+        </tr>
+        <tr><td colspan="3" class="section-header">Proceso Final</td></tr>
+        <tr>
+            <td>13. Cartas de presentación firmadas</td>
+            <td class="btn-group">
+                <button class="btn ok-btn" onclick="toggleState(this)">OK</button>
+                <button class="btn no-btn" onclick="toggleState(this)">NO</button>
+            </td>
+            <td><input type="text" class="observaciones"></td>
+        </tr>
+        <tr>
+            <td>14. Consolidación de documentación</td>
+            <td class="btn-group">
+                <button class="btn ok-btn" onclick="toggleState(this)">OK</button>
+                <button class="btn no-btn" onclick="toggleState(this)">NO</button>
+            </td>
+            <td><input type="text" class="observaciones"></td>
+        </tr>
+    </table>
+</div>
+
+<script>
+function toggleState(btn) {
+    const row = btn.closest('tr');
+    const buttons = row.querySelectorAll('.btn');
+    
+    // Resetear todos los botones en la fila
+    buttons.forEach(b => {
+        b.classList.remove('active');
+        b.style.backgroundColor = '#bdc3c7';
+    });
+    
+    // Marcar el botón seleccionado
+    btn.classList.add('active');
+    btn.style.backgroundColor = btn.classList.contains('ok-btn') ? '#27ae60' : '#e74c3c';
+    
+    // Actualizar progreso
+    updateAllProgress();
+}
+
+function updateAllProgress() {
+    document.querySelectorAll('h2').forEach(header => {
+        const table = header.nextElementSibling;
+        const allRows = table.querySelectorAll('tr');
+        
+        // Filtrar solo requisitos válidos (excluir encabezados)
+        const requirements = Array.from(allRows).filter(row => 
+            !row.querySelector('td.section-header') && 
+            row.querySelector('td:first-child')
+        );
+        
+        const total = requirements.length;
+        let completed = 0;
+        
+        requirements.forEach(row => {
+            if (row.querySelector('.btn.ok-btn.active')) completed++;
+        });
+        
+        // Calcular porcentaje exacto
+        const progress = total > 0 ? Math.round((completed / total) * 100) : 0;
+        header.querySelector('.progress').textContent = `${progress}%`;
+    });
+}
+
+// Inicializar porcentajes al cargar
+updateAllProgress();
+</script>
+
+</body>
+</html>
